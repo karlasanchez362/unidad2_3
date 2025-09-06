@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Titulo from './components/Titulo';
 import TarjetaDePerfil from './components/TarjetaDePerfil'; 
+import ListaDeHabilidades from './components/ListaDeHabilidades';
+import { useState } from 'react'; 
 
 const usuario = {
     nombre: 'Karla Sanchez',
@@ -9,12 +11,23 @@ const usuario = {
     profesion: 'Estudiante de Analisis de Sistemas',
     ciudad: 'Salta, Argentina'
   };
+
+const habilidades = ['JavaScript', 'React', 'Node.js' , 'HTML', 'CSS'];
+
 function App() {
-  
+  const [mostrarHabilidades, setMostrarHabilidades] = useState(false);
+  const cambiarMostrarHabilidades = () => {
+    setMostrarHabilidades(!mostrarHabilidades);
+  };
   return (
     <div className="App">
       <Titulo />
       <TarjetaDePerfil usuario={usuario} />
+      <button onClick={cambiarMostrarHabilidades} style={{ margin: '20px', padding: '10px 20px', fontSize: '16px' }}>
+        {mostrarHabilidades ? 'Ocultar Habilidades' : 'Mostrar Habilidades'}
+      </button>
+      {mostrarHabilidades && <ListaDeHabilidades habilidades={habilidades} />}
+
     </div>
   );
 }
