@@ -8,13 +8,13 @@ import { useState } from 'react';
 function App() {
   const usuario = {
     nombre: 'Karla Sanchez',
-    edad: 24,
-    profesion: 'Estudiante de Analisis de Sistemas',
+    edad: '24 años',
+    profesion: 'Estudiante de la tecnicatura de Analisis de Sistemas',
     ciudad: 'Salta, Argentina'
   };
 
   const habilidades = ['JavaScript', 'React', 'Node.js' , 'HTML', 'CSS'];
-  
+
   const [mostrarHabilidades, setMostrarHabilidades] = useState(false);
   const cambiarMostrarHabilidades = () => {
     setMostrarHabilidades(!mostrarHabilidades);
@@ -22,7 +22,11 @@ function App() {
   return (
     <div className="App">
       <Titulo />
-      <TarjetaDePerfil usuario={usuario} />
+      <TarjetaDePerfil nombre={usuario.nombre} 
+      edad={usuario.edad} 
+      profesion={usuario.profesion} 
+      ciudad={usuario.ciudad} 
+      />
       <button onClick={cambiarMostrarHabilidades} style={{ margin: '20px', padding: '10px 20px', fontSize: '16px' }}>
         {mostrarHabilidades ? 'Ocultar Habilidades' : 'Mostrar Habilidades'}
       </button>
