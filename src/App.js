@@ -5,16 +5,15 @@ import TarjetaDePerfil from './components/TarjetaDePerfil';
 import ListaDeHabilidades from './components/ListaDeHabilidades';
 import { useState } from 'react'; 
 
-const usuario = {
+const habilidades = ['JavaScript', 'React', 'Node.js' , 'HTML', 'CSS'];
+
+function App() {
+  const usuario = {
     nombre: 'Karla Sanchez',
     edad: 24,
     profesion: 'Estudiante de Analisis de Sistemas',
     ciudad: 'Salta, Argentina'
   };
-
-const habilidades = ['JavaScript', 'React', 'Node.js' , 'HTML', 'CSS'];
-
-function App() {
   const [mostrarHabilidades, setMostrarHabilidades] = useState(false);
   const cambiarMostrarHabilidades = () => {
     setMostrarHabilidades(!mostrarHabilidades);
